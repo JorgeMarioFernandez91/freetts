@@ -1,0 +1,22 @@
+.decide-script-needs {
+  
+    .btn-1, .btn-2 {
+        color: #fff;
+        background-color: #FFD43B;
+        border: 2px solid black;
+        border-radius: 5px;
+        width: fit-content;
+        padding: 10px;
+        color: black;
+        margin: 20px auto;
+        &:hover {
+            background-color: #FFD43B;
+            color: black;
+            cursor: pointer;
+        }
+        &:active {
+            transform: scale(0.98); 
+            box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
+        }
+    }
+}
