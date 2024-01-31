@@ -1,0 +1,28 @@
+.logo {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+
+    img {
+        width: 500px;
+        filter: invert(91%) sepia(43%) saturate(3093%) hue-rotate(323deg) brightness(101%) contrast(103%);
+    }
+
+    #gear{
+        animation-name: ckw;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        transform-origin: 50% 50%;
+        display: inline-block;
+    }
+    @keyframes ckw {
+        0% {
+            transform: rotate(0deg);
+            filter: invert(91%) sepia(43%) saturate(3093%) hue-rotate(323deg) brightness(101%) contrast(103%);
+        }
+        100% {
+            transform: rotate(360deg);
+            filter: invert(21%) sepia(82%) saturate(1364%) hue-rotate(261deg) brightness(87%) contrast(88%);
+        }
+    }
+}
