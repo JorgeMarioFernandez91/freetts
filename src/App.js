@@ -1,15 +1,14 @@
 import './App.css';
-import './components/Form.js';
-import Form from './components/Form.js';
+import { useState } from 'react';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
-import Tutorial from './components/Tutorial.js';
-import { useState } from 'react';
 import Loading from './components/Loading.js';
+import Body from './components/Body.js';
+import './styles/app.scss';
 
 function App() {
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // simulate a 4 second loading time
   setTimeout(function() {
@@ -27,8 +26,7 @@ function App() {
     return (
       <div className="app">
         <Header />
-        <Form />
-        <Tutorial />
+        <Body />
         <Footer />
       </div>
     );

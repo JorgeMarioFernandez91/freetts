@@ -1,0 +1,14 @@
+.footer {
+    background-color: #723287;
+    bottom: 0;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+}

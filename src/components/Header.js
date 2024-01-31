@@ -1,10 +1,10 @@
 import React from 'react'
-
+import '../styles/header.scss'
 function Header() {
     return (
-        <div>
-            <div>TTS Engine</div>
-            <div>Free Text To Speech</div>
+        <div className="header">
+            <h1>TTS Engine</h1>
+            <h2>Free Text To Speech</h2>
         </div>
     )
 }
