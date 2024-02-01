@@ -22,7 +22,7 @@ function TextArea(props) {
   );
 }
 
-function Button(props) {
+function ConvertToSpeechButton(props) {
   const processText = () => {
     TextToSpeech(props);
   };
@@ -32,6 +32,16 @@ function Button(props) {
       Convert To Speech
     </button>
   );
+}
+
+function DownloadButton(props) {
+  if (props.downloadUrl !== null) {
+    return (
+      <a className="button" href={props.downloadUrl} download="speech.mp3">
+        Download Speech
+      </a>
+    );
+  }
 }
 
 function Voices(props) {
@@ -70,6 +80,11 @@ function ScriptReader() {
   const [text, setText] = React.useState("");
   const [voice, setVoice] = React.useState("alloy");
   const [loading, setLoading] = React.useState(false);
+  const [downloadUrl, setDownloadUrl] = React.useState(null);
+
+  const handleDownloadUrl = (url) => {
+    setDownloadUrl(url);
+  };
 
   const handleLoading = (value) => {
     setLoading(value);
@@ -99,7 +114,13 @@ function ScriptReader() {
             voice={voice}
             handleParentTextChange={handleTextChange}
           />
-          <Button text={text} voice={voice} handleLoading={handleLoading} />
+          <ConvertToSpeechButton
+            text={text}
+            voice={voice}
+            handleLoading={handleLoading}
+            handleDownloadUrl={handleDownloadUrl}
+          />
+          <DownloadButton downloadUrl={downloadUrl} />
         </div>
 
         <div className="right">

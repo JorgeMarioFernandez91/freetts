@@ -23,6 +23,10 @@ export function TextToSpeech(props) {
       var audio = new Audio();
       audio.src = audioURL;
       audio.play();
+
+      var url = window.URL.createObjectURL(oBlob);
+
+      props.handleDownloadUrl(url);
     }
   };
 
