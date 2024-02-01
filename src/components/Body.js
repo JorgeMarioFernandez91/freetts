@@ -1,8 +1,9 @@
 import React from 'react'
-import Form from './Form'
+import ScriptReader from './ScriptReader'
 import '../styles/body.scss'
-import DecideScriptNeeds from './DecideScriptNeeds'
 import BodyText from './BodyText'
+import ScriptGenerator from './ScriptGenerator'
+import DecideScriptNeeds from './DecideScriptNeeds'
 
 function Body() {
     const [userType, SetUserType] = React.useState(null)
@@ -12,12 +13,11 @@ function Body() {
         component = <DecideScriptNeeds handleUserType={SetUserType}/>;
     }
     else if (userType === "has-script"){
-        component = <Form />;
+        component = <ScriptReader />;
     }
     else {
-        component = '';
+        component = <ScriptGenerator />;
     }
-    
 
     return (
         <div className="body">
