@@ -4,10 +4,15 @@
     // height: calc(100% - 140px);
 
     .background {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        position: absolute;
+        justify-content: space-between;
 
         .top-glyph,
         .bottom-glyph {
-            position: absolute;
+            // position: absolute;
             background-size: contain;
             background-repeat: no-repeat;
             z-index: 0;
@@ -25,10 +30,10 @@
 
         .bottom-glyph {
             background-image: url('../assets/bottom-glyph.png');
-            transform: scaleY(-1);
-            bottom: 70px;
-            position: fixed;
-            bottom: 70px;
+            transform: scaleX(-1);
+            // bottom: 70px;
+            // position: fixed;
+            // bottom: 70px;
         }
 
     }

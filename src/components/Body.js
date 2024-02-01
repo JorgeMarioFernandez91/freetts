@@ -1,18 +1,10 @@
 import React from "react";
 import ScriptReader from "./ScriptReader";
-import "../styles/body.scss";
 import BodyText from "./BodyText";
 import ScriptGenerator from "./ScriptGenerator";
 import DecideScriptNeeds from "./DecideScriptNeeds";
-
-function Background() {
-  return (
-    <div className="background">
-      <div className="top-glyph" />
-      <div className="bottom-glyph" />
-    </div>
-  );
-}
+import Background from "./Background";
+import "../styles/body.scss";
 
 function Body() {
   const [userType, SetUserType] = React.useState(null);
