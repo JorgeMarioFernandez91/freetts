@@ -1,6 +1,5 @@
 import React from 'react';
-import Style from '../styles/form.scss'
-
+import '../styles/form.scss';
 
 function TextArea(props) {
     var placeholder = 'Enter text here';
@@ -19,7 +18,7 @@ function Button(props) {
         if (props.text !== '') {
             var sModelId = "tts-1";
             var sVoiceId = props.voice;
-            var API_KEY = "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";
+            var API_KEY = process.env.REACT_APP_API_KEY;
 
             var oHttp = new XMLHttpRequest();
             oHttp.open("POST", "https://api.openai.com/v1/audio/speech");
@@ -79,9 +78,6 @@ function Voices(props) {
     )
 }
 
-
-
-
 function Form() {
 
     const [text, setText] = React.useState('');
@@ -99,7 +95,8 @@ function Form() {
 
     return (
         <div className='form'>
-            <div className="left">
+            <div className="left"></div>
+            <div className="center">
                 <TextArea text={text} voice={voice} handleParentTextChange={handleTextChange} />
                 <Button text={text} voice={voice} />
             </div>

@@ -11,12 +11,13 @@ function Body() {
     if (userType === null) {
         component = <DecideScriptNeeds handleUserType={SetUserType}/>;
     }
-    else if (userType === "needs-script") {
-        component = '';
-    }
-    else {
+    else if (userType === "has-script"){
         component = <Form />;
     }
+    else {
+        component = '';
+    }
+    
 
     return (
         <div className="body">
