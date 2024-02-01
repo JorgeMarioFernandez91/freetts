@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/form.scss";
 import TextToSpeech from "./TextToSpeech";
+import Loading from "./Loading";
 
 function TextArea(props) {
   var placeholder = "Enter text here";
@@ -22,9 +23,8 @@ function TextArea(props) {
 }
 
 function Button(props) {
-
   const processText = () => {
-    TextToSpeech(props.text, props.voice);
+    TextToSpeech(props);
   };
 
   return (
@@ -68,8 +68,12 @@ function Voices(props) {
 
 function ScriptReader() {
   const [text, setText] = React.useState("");
-
   const [voice, setVoice] = React.useState("alloy");
+  const [loading, setLoading] = React.useState(false);
+
+  const handleLoading = (value) => {
+    setLoading(value);
+  };
 
   const handleTextChange = (event) => {
     setText(event.target.value);
@@ -79,23 +83,31 @@ function ScriptReader() {
     setVoice(voice);
   };
 
-  return (
-    <div className="form">
-      <div className="left"></div>
-      <div className="center">
-        <TextArea
-          text={text}
-          voice={voice}
-          handleParentTextChange={handleTextChange}
-        />
-        <Button text={text} voice={voice} />
+  if (loading) {
+    return (
+      <div className="form">
+        <Loading />
       </div>
+    );
+  } else {
+    return (
+      <div className="form">
+        <div className="left"></div>
+        <div className="center">
+          <TextArea
+            text={text}
+            voice={voice}
+            handleParentTextChange={handleTextChange}
+          />
+          <Button text={text} voice={voice} handleLoading={handleLoading} />
+        </div>
 
-      <div className="right">
-        <Voices handleParentVoiceChange={handleVoiceChange} />
+        <div className="right">
+          <Voices handleParentVoiceChange={handleVoiceChange} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default ScriptReader;

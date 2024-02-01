@@ -8,7 +8,11 @@ import './styles/app.scss';
 
 function App() {
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const handleLoading = (value) => {
+    setLoading(value);
+  }
 
   // simulate a 4 second loading time
   setTimeout(function() {
@@ -25,7 +29,7 @@ function App() {
   else {
     return (
       <div className="app">
-        <Header />
+        <Header handleLoading={handleLoading} />
         <Body />
         <Footer />
       </div>

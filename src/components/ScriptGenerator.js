@@ -2,6 +2,7 @@ import React from "react";
 import ChatGPT from "./ChatGPT";
 import TextToSpeech from "./TextToSpeech";
 import "../styles/script-generator.scss";
+import Loading from "./Loading";
 
 function TextArea(props) {
   var placeholder = "Enter text here";
@@ -22,7 +23,13 @@ function TextArea(props) {
   );
 }
 
-function Button(props) {
+function ResponseText(props) {
+    if (props.text !== "") {
+        return <div className="gpt-response">{props.text}</div>;
+    }
+}
+
+function GenerateScriptButton(props) {
   const processText = () => {
     ChatGPT(props);
   };
@@ -36,9 +43,9 @@ function Button(props) {
   }
 }
 
-function ReadTextButton(props) {
+function ReadScriptButton(props) {
   const processText = () => {
-    TextToSpeech(props.text, "alloy");
+    TextToSpeech(props);
   };
 
   if (props.text !== "") {
@@ -50,19 +57,14 @@ function ReadTextButton(props) {
   }
 }
 
-function Bottom(props) {
-  return (
-    <div className="bottom">
-      <div className="gpt-response"> {props.response}</div>
-      <ReadTextButton text={props.response} />
-    </div>
-  );
-}
-
 function ScriptGenerator() {
   const [text, setText] = React.useState("");
-
   const [response, setResponse] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+
+  const handleLoading = (value) => {
+    setLoading(value);
+  };
 
   const handleResponse = (event) => {
     setResponse(event);
@@ -72,17 +74,32 @@ function ScriptGenerator() {
     setText(event.target.value);
   };
 
-  return (
-    <div className="script-generator">
-      <div className="form">
-        <div className="center">
-          <TextArea text={text} handleParentTextChange={handleTextChange} />
-          <Button text={text} handleResponse={handleResponse} />
+  if (loading) {
+    return (
+      <div className="script-generator">
+        <Loading />
+      </div>
+    );
+  } else {
+    return (
+      <div className="script-generator">
+        <div className="form">
+          <div className="center">
+            <TextArea text={text} handleParentTextChange={handleTextChange} />
+            <GenerateScriptButton
+              text={text}
+              handleResponse={handleResponse}
+              handleLoading={handleLoading}
+            />
+            <div className="bottom">
+              <ResponseText text={response} />
+              <ReadScriptButton text={response} voice={'alloy'} handleLoading={handleLoading} />
+            </div>
+          </div>
         </div>
       </div>
-      <Bottom response={response} />
-    </div>
-  );
+    );
+  }
 }
 
 export default ScriptGenerator;
