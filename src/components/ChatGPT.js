@@ -26,7 +26,7 @@ export function ChatGPT(props) {
     messages: [
       {
         role: "user",
-        content: props.text,
+        content: props.text + '\n Keep under 4000 characters',
       },
     ],
   };

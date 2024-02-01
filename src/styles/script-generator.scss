@@ -18,6 +18,10 @@
             border-radius: 5px;
             padding: 5px;
             position: relative;
+
+            height: 120px;
+            border: 1px solid #aaaaaa;
+            overflow: auto;
         }
 
         .button {
@@ -37,8 +41,10 @@
             box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
         }
     }
+
     .logo {
         height: 500px;
+
         #gear {
             width: 100px;
         }

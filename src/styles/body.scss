@@ -1,26 +1,46 @@
 .body {
 
     background-size: cover;
-    height: calc(100% - 140px);
+    // height: calc(100% - 140px);
 
     .background {
-        .top-glyph, .bottom-glyph {
+
+        .top-glyph,
+        .bottom-glyph {
             position: absolute;
             background-size: contain;
-            height: 30%;
-            width: 30%;
             background-repeat: no-repeat;
             z-index: 0;
         }
-    
+
+        .top-glyph,
+        .bottom-glyph {
+            height: 400px;
+            width: 400px;
+        }
+
         .top-glyph {
             background-image: url('../assets/top-glyph.png');
         }
-    
+
         .bottom-glyph {
             background-image: url('../assets/bottom-glyph.png');
             transform: scaleY(-1);
             bottom: 70px;
+            position: fixed;
+            bottom: 70px;
+        }
+
+    }
+
+    @media (max-width: 600px) {
+        .background {
+
+            .top-glyph,
+            .bottom-glyph {
+                height: 140px;
+                width: 270px;
+            }
         }
     }
 }
