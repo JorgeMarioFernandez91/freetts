@@ -1,7 +1,7 @@
 /**
- * TextToSpeech
+ * Makes a call to OpenAI's TTS model and returns a link to download the audio file
+ * @param {*} props
  * @returns {void}
- * @description Converts text to speech using OpenAI's TTS model
  */
 export function TextToSpeech(props) {
   props.handleLoading(true);

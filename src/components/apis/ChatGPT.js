@@ -1,7 +1,7 @@
 /**
- * ChatGPT.js
+ * Makes an API call to OpenAI's ChatGPT model
+ * @param {*} props
  * @returns {void}
- * @description Generates a response using OpenAI's ChatGPT model
  */
 export function ChatGPT(props) {
   props.handleLoading(true);
