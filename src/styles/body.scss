@@ -1,5 +1,26 @@
 .body {
-    background-image: url('../assets/background-img-tts.png');
+
     background-size: cover;
     height: calc(100% - 140px);
+
+    .background {
+        .top-glyph, .bottom-glyph {
+            position: absolute;
+            background-size: contain;
+            height: 30%;
+            width: 30%;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+    
+        .top-glyph {
+            background-image: url('../assets/top-glyph.png');
+        }
+    
+        .bottom-glyph {
+            background-image: url('../assets/bottom-glyph.png');
+            transform: scaleY(-1);
+            bottom: 70px;
+        }
+    }
 }
