@@ -8,10 +8,15 @@ import "../styles/body.scss";
 
 function Body() {
   const [userType, SetUserType] = React.useState(null);
+
+  const handleUserType = (type) => {
+    SetUserType(type);
+  };
+
   var component = null;
 
   if (userType === null) {
-    component = <DecideScriptNeeds handleUserType={SetUserType} />;
+    component = <DecideScriptNeeds handleUserType={handleUserType} />;
   } else if (userType === "has-script") {
     component = <ScriptReader />;
   } else {
