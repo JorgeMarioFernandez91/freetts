@@ -21,8 +21,8 @@ export function ChatGPT(props) {
       messages: [
         {
           role: "user",
-          content: "list top 3 pizza toppings world wide. Keep it short.",
-          // content: props.text,
+        //   content: "list top 3 pizza toppings world wide. Keep it short.",
+          content: props.text + ' . Keep response under 200 words. Keep short.',
         },
       ],
     };
