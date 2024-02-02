@@ -16,6 +16,7 @@ export function TextToSpeech(props) {
   oHttp.setRequestHeader("Authorization", "Bearer " + API_KEY);
 
   oHttp.onload = function () {
+    // once we get a response, we can stop the loading animation and play the audio
     if (oHttp.readyState === 4) {
       props.handleLoading(false);
       var oBlob = new Blob([this.response], { type: "audio/mpeg" });
@@ -24,9 +25,8 @@ export function TextToSpeech(props) {
       audio.src = audioURL;
       audio.play();
 
-      var url = window.URL.createObjectURL(oBlob);
-
-      props.handleDownloadUrl(url);
+      // return url so we can download the audio
+      props.handleDownloadUrl(audioURL);
     }
   };
 

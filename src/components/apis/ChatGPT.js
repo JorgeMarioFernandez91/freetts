@@ -14,8 +14,8 @@ export function ChatGPT(props) {
   oHttp.setRequestHeader("Authorization", "Bearer " + API_KEY);
 
   oHttp.onload = function () {
+    // once we get a response, we can stop the loading animation and display the response
     if (oHttp.readyState === 4) {
-      //   setResponse(oHttp.response.choices[0].message.content)
       props.handleResponse(oHttp.response.choices[0].message.content);
       props.handleLoading(false);
     }
